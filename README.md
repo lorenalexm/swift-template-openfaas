@@ -19,9 +19,7 @@ faas-cli new {projectname} --lang swift
 
 At this point you will have a directory which contains the _{projectname}.yml_ file, along with the template directory OpenFaaS needs for knowing how to build the image, and finally a _{projectname}_ directory which contains the _Handler.swift_ and _Package.swift_ files where you will flesh out your function.
 
-The _handler.swift_ file houses by default a single function _process(with: String)_ returning a [String](https://developer.apple.com/documentation/swift/string), wrapped in the _Handler_ class.
-
-The argument passed into _process(with: String)_ might be more than a basic [String](https://developer.apple.com/documentation/swift/string) object, and could even be  [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) presented to your function as a string; allowing you to use the [JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder) together with a [Codable](https://developer.apple.com/documentation/swift/codable) struct.
+The _handler.swift_ file houses by default a single function: _process(with args: String)_, returning a [String](https://developer.apple.com/documentation/swift/string), wrapped in the _Handler_ class. The argument passed into _process(with args: String)_ might be more than a basic [String](https://developer.apple.com/documentation/swift/string) object, and could even be [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON) presented to your function as a string; allowing you to use the [JSONDecoder](https://developer.apple.com/documentation/foundation/jsondecoder) together with a [Codable](https://developer.apple.com/documentation/swift/codable) struct.
 
 Once your function is fleshed out and ready for use, and keeping with the simplicity of OpenFaaS, simply issue the following command from the base directory of your function. This will build the image for the function, push it to your container registry, and send it off to your OpenFaaS installation.
 
