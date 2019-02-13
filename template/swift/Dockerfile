@@ -5,6 +5,7 @@ WORKDIR /swift/Sources/Handler
 RUN mkdir -p /app
 WORKDIR /app
 COPY . .
+RUN mv ./function/Package.swift ./Package.swift
 RUN swift build
 RUN chmod +x ./.build/x86_64-unknown-linux/debug/Handler
 
