@@ -1,2 +1,2 @@
 language: swift
-fprocess: "swift run"
+fprocess: "./.build/x86_64-unknown-linux/debug/Handler"

@@ -6,13 +6,12 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . .
 RUN swift build
-RUN cp ./.build/x86_64*/debug/Handler ./Handler
-RUN chmod +x ./Handler
+RUN chmod +x ./.build/x86_64-unknown-linux/debug/Handler
 
 RUN curl -sSL https://github.com/openfaas/faas/releases/download/0.8.0/fwatchdog > ./fwatchdog
 RUN chmod +x ./fwatchdog
 
-ENV fprocess="./Handler"
+ENV fprocess="./.build/x86_64-unknown-linux/debug/Handler"
 
 HEALTHCHECK --interval=2s CMD [ -e /tmp/.lock ] || exit 1
 
