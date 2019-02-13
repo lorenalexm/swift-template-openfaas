@@ -1,5 +1,5 @@
 class Handler {
-	func process(with: String) -> String {
+	func process(with args: String) -> String {
 		return "Success"
 	}
 }
