@@ -1,17 +1,15 @@
-FROM swift:latest
+FROM swift:4.2.4
 
-WORKDIR /swift/Sources/Handler
-
-RUN mkdir -p /app
-WORKDIR /app
+RUN useradd -rm --shell /bin/bash swiftfunc
+WORKDIR /home/swiftfunc
 COPY . .
-RUN mv ./function/Package.swift ./Package.swift
-RUN mv ./function/*.swift ./Sources/Handler/.
-RUN swift build
-RUN chmod +x ./.build/x86_64-unknown-linux/debug/Handler
 
-RUN curl -sSL https://github.com/openfaas/faas/releases/download/0.8.0/fwatchdog > ./fwatchdog
-RUN chmod +x ./fwatchdog
+RUN mv ./function/Package.swift ./Package.swift && \
+  mv ./function/*.swift ./Sources/Handler/. && \
+  swift build && \
+  chmod +x ./.build/x86_64-unknown-linux/debug/Handler && \
+  curl -sSL https://github.com/openfaas/faas/releases/download/0.8.0/fwatchdog > ./fwatchdog && \
+  chmod +x ./fwatchdog
 
 ENV fprocess="./.build/x86_64-unknown-linux/debug/Handler"
 

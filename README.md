@@ -2,7 +2,7 @@
 
 ## Description
 
-Allows the usage of Swift within OpenFaaS containers, offering support for the Swift Package Manager (SPM) to be used. This greatly widens what is possible within your Swift function while keeping your code at a minimum. On top of the ability to use packages, multiple source files may be used to keep your function organized.
+Allows the usage of Swift 4.2.4  within OpenFaaS containers, offering support for the Swift Package Manager (SPM) to be used. This greatly widens what is possible within your Swift function while keeping your code at a minimum. On top of the ability to use packages, multiple source files may be used to keep your function organized.
 
 This template is based heavily on the work already in place by [Keiran Smith](https://github.com/affix) for using Swift within the OpenFaaS system. A fair portion of the code and basis for the Docker images were taken directly from [affix/openfaas-templates-affix](https://github.com/affix/openfaas-templates-affix).
 
